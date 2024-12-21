@@ -17,9 +17,18 @@ st.set_page_config(layout="wide")
 try:
     import fiona
 except ModuleNotFoundError:
-    st.warning("fiona is not installed. Attempting to install it...")
-    subprocess.check_call([os.sys.executable, "-m", "pip", "install", "fiona"])
-    import fiona  # Re-import after installation
+    try:
+        result = subprocess.run(
+            [os.sys.executable, "-m", "pip", "install", "fiona"],
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        print(result.stdout)
+        import fiona
+    except subprocess.CalledProcessError as e:
+        print(f"Installation failed with exit code {e.returncode}")
+        print(f"Error message: {e.stderr}")
 warnings.filterwarnings("ignore")
 
 
