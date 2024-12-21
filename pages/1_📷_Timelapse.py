@@ -10,7 +10,8 @@ import geemap.colormaps as cm
 import geemap.foliumap as geemap
 from datetime import date
 from shapely.geometry import Polygon
-
+import subprocess
+import os
 st.set_page_config(layout="wide")
 
 try:
