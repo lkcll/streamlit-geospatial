@@ -3,7 +3,6 @@ import json
 import os
 import warnings
 import datetime
-import fiona
 import geopandas as gpd
 import folium
 import streamlit as st
@@ -13,7 +12,7 @@ from datetime import date
 from shapely.geometry import Polygon
 
 st.set_page_config(layout="wide")
-st.set_page_config(layout="wide")
+
 try:
     import fiona
 except ModuleNotFoundError:
