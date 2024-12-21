@@ -13,6 +13,13 @@ from datetime import date
 from shapely.geometry import Polygon
 
 st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
+try:
+    import fiona
+except ModuleNotFoundError:
+    st.warning("fiona is not installed. Attempting to install it...")
+    subprocess.check_call([os.sys.executable, "-m", "pip", "install", "fiona"])
+    import fiona  # Re-import after installation
 warnings.filterwarnings("ignore")
 
 
